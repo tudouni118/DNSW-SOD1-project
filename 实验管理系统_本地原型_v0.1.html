@@ -1,0 +1,916 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudyFlow｜SOD1G93A 实验协作原型</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --surface: #ffffff;
+      --surface-2: #f8fafc;
+      --text: #152235;
+      --muted: #6e7d90;
+      --line: #e4eaf1;
+      --primary: #176b62;
+      --primary-2: #dff2ed;
+      --blue: #3b73d1;
+      --orange: #d8893d;
+      --purple: #8065c4;
+      --red: #c75d65;
+      --green: #2e9c71;
+      --shadow: 0 10px 30px rgba(26, 44, 72, .06);
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; font-family: "Segoe UI", "Microsoft YaHei", sans-serif; color: var(--text); background: var(--bg); }
+    button, input, textarea, select { font: inherit; }
+    button { cursor: pointer; }
+    .app-shell { min-height: 100vh; display: flex; }
+    .sidebar { width: 250px; flex: 0 0 250px; background: #132c37; color: #d9e8e5; display: flex; flex-direction: column; padding: 22px 16px 16px; }
+    .brand { display: flex; align-items: center; gap: 11px; padding: 0 10px 24px; }
+    .brand-mark { width: 36px; height: 36px; border-radius: 12px; display: grid; place-items: center; color: #11333a; background: #c7eee2; font-weight: 800; letter-spacing: -.05em; }
+    .brand-name { font-size: 15px; font-weight: 700; letter-spacing: .02em; }
+    .brand-sub { display: block; color: #8ca8aa; font-size: 11px; font-weight: 400; margin-top: 3px; }
+    .project-switch { border: 1px solid rgba(229, 250, 245, .14); border-radius: 14px; background: rgba(255,255,255,.06); padding: 13px 14px; margin-bottom: 24px; }
+    .project-switch small { display: block; color: #8ca8aa; font-size: 11px; margin-bottom: 7px; }
+    .project-switch strong { display: block; color: #fff; font-size: 13px; font-weight: 600; }
+    .project-switch span { display: inline-block; margin-top: 9px; font-size: 11px; color: #9bd8c8; }
+    .nav-label { color: #7f9b9d; padding: 0 11px 9px; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+    .nav { display: grid; gap: 4px; }
+    .nav-item { width: 100%; display: flex; align-items: center; gap: 11px; color: #a9c1c0; background: transparent; border: 0; border-radius: 11px; padding: 11px 12px; text-align: left; font-size: 13px; }
+    .nav-item:hover { color: #fff; background: rgba(255,255,255,.08); }
+    .nav-item.active { color: #fff; background: #1e635d; box-shadow: inset 3px 0 #9ee3d0; }
+    .nav-icon { width: 20px; text-align: center; font-size: 15px; opacity: .9; }
+    .sidebar-footer { margin-top: auto; border-top: 1px solid rgba(255,255,255,.1); padding: 16px 9px 0; color: #8ca8aa; font-size: 11px; }
+    .local-mode { display: flex; align-items: center; gap: 7px; margin-bottom: 14px; }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: #73d4a9; box-shadow: 0 0 0 3px rgba(115,212,169,.16); }
+    .ghost-light { width: 100%; background: transparent; border: 1px solid rgba(255,255,255,.16); border-radius: 9px; color: #b8d0cf; padding: 8px 10px; font-size: 11px; }
+    .main { flex: 1; min-width: 0; }
+    .topbar { height: 72px; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 0 34px; background: rgba(255,255,255,.82); border-bottom: 1px solid var(--line); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 4; }
+    .crumb { color: var(--muted); font-size: 12px; }
+    .crumb strong { color: var(--text); font-size: 14px; margin-left: 8px; }
+    .top-actions { display: flex; align-items: center; gap: 15px; }
+    .demo-pill { color: #95662e; background: #fff4e7; border: 1px solid #f2dfc6; border-radius: 999px; padding: 6px 10px; font-size: 11px; }
+    .user-chip { display: flex; align-items: center; gap: 9px; padding-left: 15px; border-left: 1px solid var(--line); }
+    .avatar { width: 31px; height: 31px; display: grid; place-items: center; color: #fff; background: #3e766f; border-radius: 50%; font-size: 12px; font-weight: 700; }
+    .user-meta strong { display: block; font-size: 12px; font-weight: 600; }
+    .user-meta span { display: block; color: var(--muted); font-size: 10px; margin-top: 2px; }
+    .content { max-width: 1480px; margin: 0 auto; padding: 31px 34px 50px; }
+    .page-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; margin-bottom: 24px; }
+    .eyebrow { color: var(--primary); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; }
+    h1 { margin: 6px 0 7px; font-size: 27px; line-height: 1.2; letter-spacing: -.04em; }
+    h2 { margin: 0; font-size: 16px; letter-spacing: -.02em; }
+    h3 { margin: 0; font-size: 13px; }
+    p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
+    .head-note { max-width: 720px; }
+    .actions { display: flex; gap: 9px; flex-wrap: wrap; justify-content: flex-end; }
+    .btn { border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--text); padding: 9px 13px; font-size: 12px; font-weight: 600; box-shadow: 0 3px 10px rgba(26,44,72,.03); }
+    .btn:hover { border-color: #b6c9d3; transform: translateY(-1px); }
+    .btn-primary { border-color: var(--primary); color: #fff; background: var(--primary); }
+    .btn-soft { border-color: #c4e6dc; color: var(--primary); background: var(--primary-2); }
+    .btn-danger { color: #a7444d; background: #fff3f3; border-color: #f0cecf; }
+    .icon-add { width: 38px; height: 38px; padding: 0; border-radius: 50%; font-size: 23px; line-height: 1; }
+    .metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-bottom: 18px; }
+    .overview-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .metric { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 17px 18px; box-shadow: var(--shadow); position: relative; overflow: hidden; }
+    .metric:after { content: ""; position: absolute; width: 70px; height: 70px; border-radius: 50%; right: -26px; top: -31px; background: var(--primary-2); opacity: .75; }
+    .metric-label { color: var(--muted); font-size: 11px; }
+    .metric-value { margin-top: 10px; font-size: 25px; letter-spacing: -.05em; font-weight: 700; }
+    .metric-foot { margin-top: 7px; color: var(--muted); font-size: 11px; }
+    .metric-foot b { color: var(--green); font-weight: 600; }
+    .grid-2 { display: grid; grid-template-columns: minmax(0, 1.18fr) minmax(0, .82fr); gap: 18px; }
+    .grid-2.equal { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .grid-2.equal > .panel { height: 100%; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 18px; }
+    .panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px; min-width: 0; }
+    .panel + .panel { margin-top: 18px; }
+    .panel-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 15px; margin-bottom: 16px; }
+    .panel-kicker { color: var(--muted); font-size: 11px; margin-top: 4px; }
+    .text-link { color: var(--primary); font-size: 11px; font-weight: 600; border: 0; background: transparent; padding: 0; }
+    .week-actions { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+    .week-scroll { overflow: hidden; padding-bottom: 0; }
+    .milestone-scroll { overflow-x: auto; padding-bottom: 3px; }
+    .week-board { width: 100%; min-width: 0; }
+    .week-date-row, .week-day-row, .week-task-row { display: grid; grid-template-columns: 132px repeat(7, minmax(0, 1fr)); }
+    .week-corner { color: var(--muted); font-size: 10px; padding: 6px 10px 6px 0; }
+    .week-date, .week-day { text-align: center; font-size: 10px; color: var(--muted); padding: 6px 4px; border-left: 1px solid #edf1f5; }
+    .week-date { color: var(--text); font-weight: 600; padding-top: 1px; padding-bottom: 3px; }
+    .week-day { border-top: 1px solid var(--line); color: #66788a; padding-top: 7px; padding-bottom: 8px; }
+    .weekend { background: #fbfcfd; }
+    .week-task-row { min-height: 56px; border-top: 1px solid #edf1f5; }
+    .week-task-label { padding: 10px 10px 9px 0; min-width: 0; }
+    .week-task-label strong { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 11px; }
+    .week-task-label span { display: block; margin-top: 4px; color: var(--muted); font-size: 10px; }
+    .week-track { position: relative; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); min-height: 56px; }
+    .week-cell { border-left: 1px solid #edf1f5; }
+    .week-bar { position: absolute; z-index: 2; top: 19px; height: 18px; min-width: 15px; display: block; overflow: hidden; border-radius: 6px; color: transparent; font-size: 0; box-shadow: 0 3px 8px rgba(34,56,74,.12); }
+    .bar-blue { background: #4d83d0; }
+    .bar-teal { background: #408f85; }
+    .bar-green { background: #2e9c71; }
+    .bar-purple { background: #8065c4; }
+    .bar-orange { background: #d8893d; }
+    .week-empty { color: var(--muted); font-size: 11px; padding: 25px 0; border-top: 1px solid #edf1f5; }
+    .milestone-axis { min-width: 900px; }
+    .axis-week-row, .axis-line-row { display: grid; grid-template-columns: 112px minmax(760px, 1fr); }
+    .axis-label { color: var(--muted); font-size: 10px; padding: 13px 10px 12px 0; }
+    .axis-track { position: relative; display: grid; grid-template-columns: repeat(11, 1fr); }
+    .axis-weeks span { text-align: center; color: var(--text); font-size: 10px; font-weight: 700; padding: 13px 0 9px; border-left: 1px solid #edf1f5; }
+    .axis-line { min-height: 52px; border-top: 1px solid #edf1f5; }
+    .axis-base { position: absolute; top: 23px; left: 0; right: 0; height: 1px; background: #cbd7df; }
+    .axis-range { position: absolute; top: 10px; height: 24px; border-radius: 6px; display: flex; align-items: center; padding: 0 7px; overflow: hidden; color: #fff; font-size: 10px; font-weight: 600; white-space: nowrap; z-index: 1; }
+    .axis-green { background: #2e9c71; }
+    .axis-purple { background: #8065c4; top: 36px; }
+    .axis-node { position: absolute; top: 0; width: 1px; height: 100%; transform: translateX(-50%); z-index: 2; }
+    .axis-node i { position: absolute; top: 17px; left: -5px; width: 10px; height: 10px; border: 2px solid #fff; border-radius: 50%; box-shadow: 0 0 0 1px currentColor; background: currentColor; }
+    .axis-node span { position: absolute; top: 33px; left: 0; width: 94px; transform: translateX(-50%); color: var(--muted); font-size: 9px; line-height: 1.3; text-align: center; }
+    .axis-blue { color: #4d83d0; }
+    .axis-green { color: #2e9c71; }
+    .axis-orange { color: #d8893d; }
+    .axis-red { color: #c75d65; }
+    .status { display: inline-flex; align-items: center; gap: 5px; border-radius: 999px; padding: 5px 8px; font-size: 10px; font-weight: 600; white-space: nowrap; }
+    .status.green { color: #16704e; background: #e6f6ee; }
+    .status.amber { color: #986127; background: #fff2df; }
+    .status.blue { color: #2e5ea9; background: #e8f0ff; }
+    .status.gray { color: #657487; background: #eef2f6; }
+    .status.red { color: #a84c55; background: #fff0f0; }
+    .timeline { display: grid; gap: 0; }
+    .timeline-item { display: grid; grid-template-columns: 74px 18px 1fr; gap: 12px; min-height: 68px; }
+    .timeline-date { color: var(--muted); font-size: 11px; padding-top: 2px; text-align: right; }
+    .timeline-rail { position: relative; display: flex; justify-content: center; }
+    .timeline-rail:before { content: ""; width: 1px; position: absolute; top: 0; bottom: 0; background: #dbe7e5; }
+    .timeline-rail:after { content: ""; position: relative; z-index: 1; width: 8px; height: 8px; border-radius: 50%; background: var(--primary); border: 3px solid #e4f4ef; margin-top: 2px; }
+    .timeline-body { padding-bottom: 16px; }
+    .timeline-body strong { display: block; font-size: 12px; margin-bottom: 5px; }
+    .timeline-body span { display: block; color: var(--muted); font-size: 11px; }
+    .chart-wrap { min-height: 230px; }
+    .chart-svg { width: 100%; height: 224px; display: block; }
+    .chart-svg text { font-family: inherit; fill: #8090a1; font-size: 10px; }
+    .chart-grid { stroke: #e9eef3; stroke-width: 1; }
+    .chart-axis { stroke: #b8c4cf; stroke-width: 1; }
+    .chart-line { fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+    .legend { display: flex; flex-wrap: wrap; gap: 10px 15px; margin-top: 3px; }
+    .legend-item { display: inline-flex; gap: 6px; align-items: center; color: var(--muted); font-size: 10px; }
+    .legend-dot { width: 7px; height: 7px; border-radius: 50%; }
+    .progress-row { margin-bottom: 16px; }
+    .progress-row:last-child { margin-bottom: 0; }
+    .progress-label { display: flex; justify-content: space-between; color: var(--muted); font-size: 11px; margin-bottom: 7px; }
+    .progress-label strong { color: var(--text); font-weight: 600; }
+    .progress { height: 7px; border-radius: 10px; background: #edf1f5; overflow: hidden; }
+    .progress span { display: block; height: 100%; border-radius: inherit; background: var(--primary); }
+    .todo-list { display: grid; gap: 11px; }
+    .todo { display: flex; gap: 10px; padding: 11px 0; border-bottom: 1px solid #edf1f5; }
+    .todo:last-child { border-bottom: 0; padding-bottom: 0; }
+    .todo-mark { width: 18px; height: 18px; display: grid; place-items: center; color: var(--primary); border: 1px solid #c2ddd7; border-radius: 6px; font-size: 11px; flex: 0 0 18px; }
+    .todo strong { display: block; font-size: 12px; margin-bottom: 4px; }
+    .todo span { color: var(--muted); font-size: 10px; }
+    .callout { border: 1px solid #dce9ee; border-left: 3px solid var(--blue); background: #f5f9fc; border-radius: 10px; padding: 12px 13px; color: #587087; font-size: 11px; line-height: 1.7; }
+    .filters { display: flex; gap: 9px; flex-wrap: wrap; align-items: end; margin-bottom: 17px; }
+    .field { display: grid; gap: 6px; min-width: 150px; }
+    .field.grow { flex: 1; }
+    .field label { color: var(--muted); font-size: 10px; font-weight: 600; }
+    .field input, .field select, .field textarea { width: 100%; border: 1px solid var(--line); border-radius: 9px; background: #fff; color: var(--text); padding: 9px 10px; outline: none; font-size: 12px; }
+    .field textarea { min-height: 150px; resize: vertical; line-height: 1.7; }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: #77b9ad; box-shadow: 0 0 0 3px rgba(64,155,135,.12); }
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 11px; min-width: 620px; }
+    th { color: var(--muted); text-align: left; font-weight: 600; padding: 0 10px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+    td { padding: 12px 10px; border-bottom: 1px solid #edf1f5; vertical-align: top; }
+    tr:last-child td { border-bottom: 0; }
+    td strong { font-size: 11px; font-weight: 600; }
+    .small { color: var(--muted); font-size: 10px; line-height: 1.6; }
+    .table-action { color: var(--primary); background: transparent; border: 0; font-size: 10px; font-weight: 600; padding: 0; }
+    .table-action.danger { color: var(--red); }
+    .protocol-layout { display: grid; grid-template-columns: 260px minmax(0,1fr); gap: 18px; align-items: start; }
+    .protocol-layout > .panel + .panel { margin-top: 0; }
+    .section-list { display: grid; gap: 5px; }
+    .section-item { border: 1px solid transparent; background: transparent; border-radius: 10px; text-align: left; padding: 11px 12px; color: var(--muted); font-size: 11px; }
+    .section-item:hover { background: var(--surface-2); color: var(--text); }
+    .section-item.active { color: var(--primary); background: var(--primary-2); border-color: #cce9e0; font-weight: 700; }
+    .section-item span { display: none; }
+    .editor-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 15px; }
+    .editor-title { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .version { color: var(--primary); background: var(--primary-2); border-radius: 999px; padding: 4px 8px; font-size: 10px; font-weight: 700; }
+    .editor-foot { display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 13px; }
+    .editor-foot p { font-size: 10px; text-align: right; }
+    .protocol-body { min-height: 0; padding-bottom: 0; color: var(--text); font-size: 13px; line-height: 1.8; cursor: text; }
+    .protocol-body p { margin: 0 0 12px; }
+    .protocol-body p:last-child { margin-bottom: 0; }
+    .protocol-body:focus { outline: 1px dashed var(--primary); outline-offset: 7px; border-radius: 6px; }
+    .protocol-subnav { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin: 1px 0 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+    .subnav-item { border: 1px solid var(--line); background: #fff; color: var(--muted); border-radius: 999px; padding: 7px 13px; font-size: 12px; font-weight: 700; cursor: pointer; transition: .2s ease; }
+    .subnav-item:hover { border-color: var(--primary); color: var(--primary); }
+    .subnav-item.active { border-color: var(--primary); background: var(--primary-2); color: var(--primary); }
+    .subnav-meta { margin-left: auto; color: var(--muted); font-size: 10px; font-weight: 600; white-space: nowrap; }
+    .protocol-table-preview { margin-top: 15px; }
+    .protocol-table-preview .table-wrap { overflow-x: hidden; }
+    .protocol-table-preview table { min-width: 0; table-layout: fixed; }
+    .protocol-table-preview th, .protocol-table-preview td { padding-left: 7px; padding-right: 7px; white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
+    .protocol-table-preview th:nth-child(1), .protocol-table-preview td:nth-child(1) { width: 16%; }
+    .protocol-table-preview th:nth-child(2), .protocol-table-preview td:nth-child(2) { width: 30%; }
+    .protocol-table-preview th:nth-child(3), .protocol-table-preview td:nth-child(3) { width: 14%; }
+    .protocol-table-preview th:nth-child(4), .protocol-table-preview td:nth-child(4) { width: 40%; }
+    .protocol-table-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+    .protocol-table-head.only-meta { justify-content: flex-end; }
+    .protocol-table-head strong { font-size: 13px; }
+    .empty { text-align: center; padding: 30px 15px; color: var(--muted); font-size: 12px; }
+    .record-form { display: none; border-top: 1px solid var(--line); padding-top: 16px; margin-top: 16px; }
+    .record-form.open { display: block; }
+    .form-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 10px; }
+    .form-grid .wide { grid-column: span 2; }
+    .form-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 12px; }
+    .sample-card { border: 1px solid var(--line); border-radius: 13px; padding: 14px; background: var(--surface-2); }
+    .sample-card strong { font-size: 13px; }
+    .sample-card .num { font-size: 23px; font-weight: 700; margin-top: 8px; letter-spacing: -.04em; }
+    .sample-card .small { margin-top: 3px; }
+    .role-chip { display: inline-block; color: #446c6b; background: #e7f2f0; padding: 4px 7px; border-radius: 5px; font-size: 10px; }
+    .permission-list { display: flex; flex-wrap: wrap; gap: 5px; }
+    .permission { color: var(--muted); border: 1px solid var(--line); border-radius: 5px; padding: 3px 6px; font-size: 10px; }
+    .toast { position: fixed; right: 22px; bottom: 22px; z-index: 10; color: #fff; background: #193a40; border-radius: 10px; padding: 11px 14px; box-shadow: 0 8px 24px rgba(15,37,46,.2); font-size: 12px; opacity: 0; transform: translateY(10px); pointer-events: none; transition: .2s ease; }
+    .toast.show { opacity: 1; transform: translateY(0); }
+    .footer-note { color: var(--muted); font-size: 10px; margin-top: 16px; }
+    @media (max-width: 1080px) {
+      .sidebar { width: 215px; flex-basis: 215px; }
+      .metrics { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .grid-2, .grid-2.equal { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .protocol-layout { grid-template-columns: 1fr; }
+      .section-list { display: flex; overflow-x: auto; padding-bottom: 3px; }
+      .section-item { min-width: 185px; }
+      .week-date-row, .week-day-row, .week-task-row { grid-template-columns: 116px repeat(7, minmax(0, 1fr)); }
+    }
+    @media (max-width: 720px) {
+      .app-shell { display: block; }
+      .sidebar { width: 100%; height: auto; padding: 12px; }
+      .brand { padding: 2px 4px 12px; }
+      .project-switch, .sidebar-footer, .nav-label { display: none; }
+      .nav { display: flex; overflow-x: auto; gap: 5px; padding-bottom: 2px; }
+      .nav-item { width: auto; white-space: nowrap; padding: 8px 10px; }
+      .nav-icon { display: none; }
+      .topbar { height: 62px; padding: 0 16px; }
+      .demo-pill { display: none; }
+      .user-meta { display: none; }
+      .content { padding: 23px 16px 35px; }
+      .page-head { display: block; }
+      .actions { justify-content: flex-start; margin-top: 15px; }
+      h1 { font-size: 23px; }
+      .metrics, .grid-3 { grid-template-columns: 1fr; }
+      .panel { padding: 16px; }
+      .form-grid { grid-template-columns: 1fr 1fr; }
+      .form-grid .wide { grid-column: span 2; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">S</div>
+        <div class="brand-name">StudyFlow<span class="brand-sub">实验协作原型</span></div>
+      </div>
+      <div class="project-switch">
+        <small>当前实验项目</small>
+        <strong>SOD1G93A 药效实验</strong>
+        <span>方案 v0.3 · 本地数据</span>
+      </div>
+      <div class="nav-label">Workspace</div>
+      <nav class="nav" aria-label="主导航">
+        <button class="nav-item active" data-page="overview"><span class="nav-icon">⌂</span>项目总览</button>
+        <button class="nav-item" data-page="protocol"><span class="nav-icon">✉</span>实验方案</button>
+        <button class="nav-item" data-page="study-log"><span class="nav-icon">▦</span>Study Log</button>
+        <button class="nav-item" data-page="inlife"><span class="nav-icon">✎</span>In-life Record</button>
+        <button class="nav-item" data-page="samples"><span class="nav-icon">✂</span>样本与收样</button>
+        <button class="nav-item" data-page="changes"><span class="nav-icon">↺</span>修改日志</button>
+        <button class="nav-item" data-page="team"><span class="nav-icon">🤝</span>协作成员</button>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="local-mode"><span class="dot"></span>本地演示模式 · 数据保存在本机浏览器</div>
+        <button class="ghost-light" id="resetDemo">重置演示数据</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="crumb">SOD1G93A 药效实验 <strong id="crumbTitle">项目总览</strong></div>
+        <div class="top-actions">
+          <span class="demo-pill">示例数据，不代表真实实验结果</span>
+          <div class="user-chip">
+            <div class="avatar">林</div>
+            <div class="user-meta"><strong>林研究员</strong><span>研究负责人 · 演示账户</span></div>
+          </div>
+        </div>
+      </header>
+      <div id="pageRoot" class="content"></div>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const STORAGE_KEY = 'studyflow-sod1g93a-prototype-v02';
+    const pageTitles = {
+      overview: '项目总览', protocol: '实验方案', 'study-log': 'Study Log',
+      inlife: 'In-life Record', samples: '样本与收样', changes: '修改日志', team: '协作成员'
+    };
+    const protocolNav = [
+      { key: 'overview', label: '实验目的' },
+      { key: 'groups', label: '动物分组' },
+      { key: '4.7', label: '配药给药' },
+      { key: 'general', label: '一般实验' },
+      { key: 'timeline', label: '行为学实验' },
+      { key: 'samples', label: '收样/生存' },
+      { key: '5.15', label: '病理检测' }
+    ];
+    const protocolSubnav = {
+      groups: [
+        { key: 'main', label: '主要实验组' },
+        { key: 'satellite', label: '卫星组' }
+      ],
+      '4.7': [
+        { key: 'vehicle', label: 'Vehicle' },
+        { key: 'riluzole', label: '利鲁唑' },
+        { key: 'mtb', label: 'MTB-1967' }
+      ],
+      timeline: [
+        { key: 'grip', label: '后肢抓力' },
+        { key: 'rotarod', label: '疲劳转棒' },
+        { key: 'balance', label: '平衡木' },
+        { key: 'ns', label: 'NS评分' }
+      ],
+      samples: [
+        { key: 'collection', label: '收样' },
+        { key: 'survival', label: '生存' }
+      ]
+    };
+    const defaultProtocolDetails = {
+      groups: {
+        main: {
+          title: '主要实验组',
+          body: '用于生存率研究。'
+        },
+        satellite: {
+          title: '卫星组',
+          body: '于16周进行终点收样。'
+        }
+      },
+      '4.7': {
+        vehicle: {
+          title: 'Vehicle',
+          body: '按周配制：250 mL。\n\n配置方法：CMC-Na 1.25 g + Tween-80 0.5 mL，后加水定容至250 mL；混匀，0.22 μm过滤除菌。\n\n用量分配：\n① Vehicle组直接给药：27只，10 mL/kg，共约63.32 mL/周\n② 利鲁唑配药：36.75 mL/周\n③ MTB-1967 400配药：≤63.00 mL/周\n④ MTB-1967 200稀释：21.00 mL/周\n⑤ 合计：≤184.07 mL/周（含20%操作余量约220.88 mL/周）剩余≥29.12 mL/周\n\n储存：4°C密闭、避光；使用前恢复至室温并充分混匀；有效期1周。'
+        },
+        riluzole: {
+          title: '利鲁唑',
+          body: '按日配制：6.25 mL/日（43.75 mL/周）。\n\n配置方法：利鲁唑原液1 mL + Vehicle 5.25 mL；混匀，得6.25 mL工作液。\n\n用量分配：主要组G3+卫星组G3，共17只，10mL/kg，约耗5.1mL/日\n\n储存：原液4°C保存；工作液使用当日现配现用。\n\n注意事项：①每瓶开瓶15日后弃置；②每日给药前需平衡至室温，使用前再充分振荡混匀。'
+        },
+        mtb: {
+          title: 'MTB-1967',
+          body: '按日配制：200和400 mg/10 mL/kg工作液各6 mL/日（各42 mL/周）。\n\n配置方法：\n① 400：称取MTB-1967粉末约362.54 mg（纯度99.3%），加Vehicle后定容至9.00 mL；充分混匀，得约40 mg/mL工作液。\n② 200：准确取400工作液3.00 mL，加Vehicle 3.00 mL；充分混匀，得6.00 mL、20 mg/mL工作液。\n\n用量分配：主要组G4/G5、卫星组G4/G5，各17只；10 mL/kg、PO、QD。\n\n注意事项：先配400工作液，再取3.00 mL配置200工作液；每日现配现用。'
+        }
+      },
+      timeline: {
+        grip: {
+          title: '后肢抓力',
+          body: '第7、9、11、13、15周进行，共5次。固定小鼠使双后肢自然抓住抓棒杆，匀速向后拉动，记录瞬间最大拉力；每只动物测试10次，取最大值作为该动物的后肢抓力值。'
+        },
+        rotarod: {
+          title: '疲劳转棒',
+          body: '正式实验前至少提前一周训练。正式实验设置4 RPM升至40 RPM，升速时间300秒；每只动物重复3次，每次间隔10分钟。记录从启动到掉落的停留时间和掉落转速，取三次中的最长停留时间及对应掉落转速。'
+        },
+        balance: {
+          title: '平衡木',
+          body: '使用6 mm和12 mm两种宽度的平衡木。正式实验记录小鼠通过标定80 cm区间的时间；每种宽度记录2次无停留通过值并取平均，单次间隔10分钟，最多进行3次。正式实验前提前两天训练。'
+        },
+        ns: {
+          title: 'NS评分',
+          body: '第10周起每周两次进行神经功能评分，按0—4分记录后肢状态、步态和翻正反射。主要实验组持续至动物死亡前；卫星组持续至第16周收样前，最后一次评分应在收样前完成。'
+        }
+      },
+      samples: {
+        collection: {
+          title: '收样',
+          body: '收样对象：卫星组25只（G1为主要实验组G1转入的5只WT）；第16周终点收样。\n\n样本：血浆78份；CSF 25份；腓肠肌25份；EDL 25对（左、右各1，共50块）；腰椎脊髓L3-L6 25份。\n\n处理：血浆、CSF冻存于-80°C；EDL经4% PFA固定24小时后FFPE包埋；L3-L6经4% PFA固定24小时后OCT包埋。'
+        },
+        survival: {
+          title: '生存',
+          body: '主要实验组从第16周起按天观察并记录生存状态。NS=1后每日观察；NS=4判定为人道终点，记录终点日期并用于生存期和生存率分析。NS=2后加强单笼饲养、饮水和营养支持。'
+        }
+      }
+    };
+    const defaultState = {
+      page: 'overview',
+      protocolSection: 'overview',
+      protocolSubsection: { groups: 'main', '4.7': 'vehicle', timeline: 'grip', samples: 'collection' },
+      protocolDetails: defaultProtocolDetails,
+      weekStart: '2026-08-24',
+      sampleDate: '2026-11-03',
+      protocol: {
+        overview: { title: '实验目的', version: 'v0.3', body: '通过生存率、体重、运动功能及体外相关检测指标，评价MTB-1967两种给药剂量（200 mg/10 mL/kg和400 mg/10 mL/kg）在SOD1G93A小鼠模型中的药效作用。' },
+        groups: { title: '动物分组', version: 'v0.3', body: '主要实验组用于生存率研究；卫星组于第16周终点收样。独立动物总数为78只。' },
+        '4.7': { title: '配药给药', version: 'v0.3', body: 'MTB-1967工作液配置：称取纯度99.3%的粉末约362.54 mg，加Vehicle定容至9.00 mL；取3.00 mL，加3.00 mL Vehicle，得200 mg/10 mL/kg工作液。' },
+        general: { title: '一般实验', version: 'v0.3', body: '体重：动物到达后每周称量2次。\n\n注意事项：NS=1后每2天称量1次。' },
+        '5.15': { title: '病理检测', version: 'v0.3', body: 'TBD' },
+        timeline: { title: '行为学实验', version: 'v0.3', body: '行为学实验：第7、9、11、13、15周进行后肢抓力、疲劳转棒和平衡木测试；第10周起 NS 评分每周两次。记录每只动物的测试日期、试次、最终值、评分人和异常情况。' },
+        samples: { title: '收样/生存', version: 'v0.3', body: '第16周终点收样，并持续记录主要实验组生存状态。' }
+      },
+      changeLog: [
+        { id: 'CHG-003', version: 'v0.3', date: '2026-08-14 13:42', author: '林研究员', section: '4.7 MTB-1967 配制', before: '定容至8.94 mL；取3 mL配置200 mpk', after: '99.3%纯度；362.54 mg；定容至9.00 mL；取3.00 mL配置200 mpk', reason: '采用整数体积配置方案并按纯度修正粉末用量', status: '已记录' },
+        { id: 'CHG-002', version: 'v0.3', date: '2026-08-14 13:35', author: '林研究员', section: '2.5 分组', before: '主要实验组 WT + Vehicle：10只', after: '主要实验组：5只；5只转入卫星组 G1', reason: '确认主要组与卫星组动物分配', status: '已记录' },
+        { id: 'CHG-001', version: 'v0.3', date: '2026-08-14 13:28', author: '林研究员', section: '5.15 检测计划', before: 'TBD', after: 'TBD（允许后续编辑）', reason: '后续病理和组织化学检测尚未确定', status: '待审核' }
+      ],
+      events: [
+        { id: 'EV-001', date: '8月25日', start: '2026-08-25', end: '2026-08-25', color: 'blue', phase: '动物接收', title: '动物到达', owner: '动物房', status: 'planned', note: '7月20日出生；预计到达时按项目约定记录为 W6' },
+        { id: 'EV-002', date: 'T0+7天', start: '2026-08-25', end: '2026-08-31', color: 'teal', phase: '适应期', title: '适应性饲养与分组', owner: '研究团队', status: 'planned', note: '基础能力评估：体重、后肢抓力、疲劳转棒、平衡木' },
+        { id: 'EV-003', date: '第7周-第15周', start: '2026-09-01', end: '2026-10-26', color: 'green', phase: '给药期', title: '给药', owner: '给药组', status: 'planned', note: 'Vehicle、Riluzole、MTB-1967 200/400，均 QD；共56天' },
+        { id: 'EV-004', date: '第10周起', start: '2026-09-22', end: '2026-11-02', color: 'purple', phase: '行为学', title: 'NS评分', owner: '行为学组', status: 'ongoing', note: '每周两次；主要组至死亡前，卫星组至第16周收样前' },
+        { id: 'EV-005', date: '第16周', start: '2026-11-03', end: '2026-11-03', color: 'orange', phase: '收样期', title: '收样', owner: '收样组', status: 'planned', note: '血浆、CSF、腓肠肌、EDL、腰椎脊髓 L3-L6' },
+        { id: 'EV-006', date: '给药期内', start: '2026-08-31', end: '2026-10-26', color: 'orange', phase: '配药期', title: '配药', owner: '配药组', status: 'planned', note: '载体、利鲁唑、MTB-1967工作液' }
+      ],
+      animals: [
+        { id: 'WT-001', group: 'WT + Vehicle', type: 'WT', weight: '21.4', ns: 0, status: '健康', last: '今日 09:12' },
+        { id: 'WT-002', group: 'WT + Vehicle', type: 'WT', weight: '22.1', ns: 0, status: '健康', last: '今日 09:14' },
+        { id: 'MV-001', group: 'Model + Vehicle', type: 'Model', weight: '20.8', ns: 1, status: '观察加密', last: '今日 09:20' },
+        { id: 'RIL-001', group: 'Model + Riluzole', type: 'Model', weight: '21.0', ns: 0, status: '健康', last: '今日 09:28' },
+        { id: 'MTB2-001', group: 'MTB-1967 200', type: 'Model', weight: '20.6', ns: 0, status: '健康', last: '今日 09:33' },
+        { id: 'MTB4-001', group: 'MTB-1967 400', type: 'Model', weight: '20.9', ns: 0, status: '健康', last: '今日 09:40' }
+      ],
+      inlifeRecords: [
+        { id: 'IL-006', date: '2026-08-14 09:40', animal: 'MTB4-001', type: '给药', value: '0.209', unit: 'mL', note: '400 mg/10 mL/kg；QD；示例记录', operator: '林研究员' },
+        { id: 'IL-005', date: '2026-08-14 09:20', animal: 'MV-001', type: 'NS评分', value: '1', unit: '分', note: '后肢部分折叠；进入加密观察', operator: '周行为学' },
+        { id: 'IL-004', date: '2026-08-14 09:12', animal: 'WT-001', type: '体重', value: '21.4', unit: 'g', note: '一般状态正常', operator: '林研究员' },
+        { id: 'IL-003', date: '2026-08-13 16:10', animal: 'RIL-001', type: '给药', value: '0.210', unit: 'mL', note: '8 mg/10 mL/kg；QD；示例记录', operator: '周给药' }
+      ],
+      samples: [
+        { type: '血浆', plan: 78, collected: 0, stored: 0, note: '主要组53 + 卫星组25' },
+        { type: 'CSF', plan: 25, collected: 0, stored: 0, note: '-80°C' },
+        { type: '腓肠肌', plan: 25, collected: 0, stored: 0, note: '具体处理方式待补充' },
+        { type: 'EDL', plan: 25, collected: 0, stored: 0, note: '25对；4% PFA 24h；FFPE' },
+        { type: '腰椎脊髓 L3-L6', plan: 25, collected: 0, stored: 0, note: '4% PFA 24h；OCT' }
+      ],
+      team: [
+        { name: '林研究员', role: '研究负责人', status: '当前账户', permissions: ['方案编辑', '记录审核', '数据导出'] },
+        { name: '周给药', role: '实验执行人员', status: '演示成员', permissions: ['给药录入', '配药录入', '查看方案'] },
+        { name: '赵行为学', role: '数据录入人员', status: '演示成员', permissions: ['行为学录入', 'NS评分录入', '查看图表'] },
+        { name: '陈审核', role: '只读查看人员', status: '演示成员', permissions: ['查看方案', '查看日志', '查看图表'] }
+      ],
+      weights: [
+        { label: 'W7', WT: 20.8, Vehicle: 20.5, Riluzole: 20.6, MTB200: 20.4, MTB400: 20.5 },
+        { label: 'W8', WT: 21.7, Vehicle: 21.4, Riluzole: 21.7, MTB200: 21.5, MTB400: 21.4 },
+        { label: 'W9', WT: 22.7, Vehicle: 22.1, Riluzole: 22.4, MTB200: 22.2, MTB400: 22.3 },
+        { label: 'W10', WT: 23.5, Vehicle: 22.9, Riluzole: 23.3, MTB200: 23.0, MTB400: 23.2 },
+        { label: 'W11', WT: 24.3, Vehicle: 23.4, Riluzole: 24.1, MTB200: 23.8, MTB400: 24.0 },
+        { label: 'W12', WT: 25.0, Vehicle: 23.8, Riluzole: 24.8, MTB200: 24.5, MTB400: 24.7 },
+        { label: 'W13', WT: 25.7, Vehicle: 24.0, Riluzole: 25.4, MTB200: 25.0, MTB400: 25.2 }
+      ]
+    };
+
+    const behaviorDates = ['2026-09-01', '2026-09-15', '2026-09-29', '2026-10-13', '2026-10-27'];
+    const behaviorItems = [
+      { title: '转棒实验', color: 'purple', note: '疲劳转棒：记录停留时间和掉落转速' },
+      { title: '后肢抓力', color: 'blue', note: '每只动物10次，取最大值' },
+      { title: '平衡木', color: 'orange', note: '记录6 mm、12 mm通过时间' }
+    ];
+    behaviorDates.forEach((date, dateIndex) => behaviorItems.forEach((item, itemIndex) => {
+      defaultState.events.push({ id: `EV-${String(10 + dateIndex * behaviorItems.length + itemIndex).padStart(3, '0')}`, date, start: date, end: date, color: item.color, phase: '行为学', title: item.title, owner: '行为学组', status: 'planned', note: item.note });
+    }));
+
+    let state = loadState();
+    function clone(value) { return JSON.parse(JSON.stringify(value)); }
+    function loadState() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+        const merged = Object.assign(clone(defaultState), saved);
+        merged.protocol = Object.assign(clone(defaultState.protocol), saved.protocol || {});
+        merged.protocolSubsection = Object.assign(clone(defaultState.protocolSubsection), saved.protocolSubsection || {});
+        merged.protocolDetails = Object.keys(defaultProtocolDetails).reduce((result, section) => {
+          const savedSection = saved.protocolDetails?.[section] || {};
+          result[section] = Object.keys(defaultProtocolDetails[section]).reduce((details, key) => {
+            details[key] = Object.assign(clone(defaultProtocolDetails[section][key]), savedSection[key] || {});
+            return details;
+          }, {});
+          return result;
+        }, {});
+        protocolNav.forEach(item => { if (merged.protocol[item.key]) merged.protocol[item.key].title = item.label; });
+        Object.keys(protocolSubnav).forEach(section => {
+          const options = protocolSubnav[section];
+          if (!options.some(item => item.key === merged.protocolSubsection[section])) merged.protocolSubsection[section] = options[0].key;
+        });
+        const defaultsById = Object.fromEntries(defaultState.events.map(event => [event.id, event]));
+        merged.events = (saved.events || defaultState.events).map(event => Object.assign({}, defaultsById[event.id] || {}, event));
+        merged.weekStart = saved.weekStart || defaultState.weekStart;
+        if (!protocolNav.some(item => item.key === merged.protocolSection)) merged.protocolSection = defaultState.protocolSection;
+        const savedOverviewBody = saved.protocol?.overview?.body || '';
+        if (savedOverviewBody.includes('本项目通过生存率') || savedOverviewBody.includes('实验分组：') || savedOverviewBody.includes('评估 Vehicle')) merged.protocol.overview = clone(defaultState.protocol.overview);
+        const savedGeneralBody = saved.protocol?.general?.body || '';
+        if (savedGeneralBody.includes('动物到达与验收') || savedGeneralBody.includes('耳标和笼位登记')) merged.protocol.general = clone(defaultState.protocol.general);
+        const savedPathologyBody = saved.protocol?.['5.15']?.body || '';
+        if (savedPathologyBody.includes('本章节允许后续补充')) merged.protocol['5.15'] = clone(defaultState.protocol['5.15']);
+        const savedGroupDetails = saved.protocolDetails?.groups || {};
+        if (String(savedGroupDetails.main?.body || '').includes('主要实验组用于生存率研究。') || String(savedGroupDetails.main?.body || '').includes('所有组别从第7周至第15周给药')) merged.protocolDetails.groups.main = clone(defaultProtocolDetails.groups.main);
+        if (String(savedGroupDetails.satellite?.body || '').includes('卫星组于第16周进行终点收样。') || String(savedGroupDetails.satellite?.body || '').includes('G1为从主要实验组G1转入')) merged.protocolDetails.groups.satellite = clone(defaultProtocolDetails.groups.satellite);
+        const savedMedicationDetails = saved.protocolDetails?.['4.7'] || {};
+        if (String(savedMedicationDetails.vehicle?.body || '').includes('Vehicle为0.5%') || String(savedMedicationDetails.vehicle?.body || '').includes('共27只；10 mL/kg、PO、QD') || String(savedMedicationDetails.vehicle?.body || '').includes('按周配制：250 mL 0.5%') || String(savedMedicationDetails.vehicle?.body || '').includes('① Vehicle组直接给药：27只，约63.32 mL/周') || String(savedMedicationDetails.vehicle?.body || '').includes('⑤ 合计：≤184.07 mL/周；')) merged.protocolDetails['4.7'].vehicle = clone(defaultProtocolDetails['4.7'].vehicle);
+        if (String(savedMedicationDetails.riluzole?.body || '').includes('利鲁唑口服混悬液原液为') || String(savedMedicationDetails.riluzole?.body || '').includes('供17只使用') || String(savedMedicationDetails.riluzole?.body || '').includes('使用组别：主要组G3') || String(savedMedicationDetails.riluzole?.body || '').includes('开瓶15日后弃置；工作液') || String(savedMedicationDetails.riluzole?.body || '').includes('配方：利鲁唑') || String(savedMedicationDetails.riluzole?.body || '').includes('原液室温') || String(savedMedicationDetails.riluzole?.body || '').includes('5 mg/mL')) merged.protocolDetails['4.7'].riluzole = clone(defaultProtocolDetails['4.7'].riluzole);
+        if (String(savedMedicationDetails.mtb?.body || '').includes('MTB-1967纯度按99.3%计算') || String(savedMedicationDetails.mtb?.body || '').includes('8.94 mL') || String(savedMedicationDetails.mtb?.body || '').includes('分别供17只使用') || String(savedMedicationDetails.mtb?.body || '').includes('配药顺序：') || String(savedMedicationDetails.mtb?.body || '').includes('使用组别：主要组G4/G5') || String(savedMedicationDetails.mtb?.body || '').includes('记录：批号')) merged.protocolDetails['4.7'].mtb = clone(defaultProtocolDetails['4.7'].mtb);
+        const savedGeneralForFrequency = saved.protocol?.general?.body || '';
+        if (savedGeneralForFrequency.includes('体重：动物到达后每周称量2次；NS=1后') || savedGeneralForFrequency.includes('给药：按体重计算给药体积')) merged.protocol.general = clone(defaultState.protocol.general);
+        const savedCollectionBody = saved.protocolDetails?.samples?.collection?.body || '';
+        if (savedCollectionBody.includes('不取大脑') || savedCollectionBody.startsWith('第16周终点收样。')) merged.protocolDetails.samples.collection = clone(defaultProtocolDetails.samples.collection);
+        return merged;
+      }
+      catch (e) { return clone(defaultState); }
+    }
+    function saveState() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {} }
+    function esc(value) {
+      return String(value ?? '').replace(/[&<>'"]/g, char => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', "'":'&#39;', '"':'&quot;' }[char]));
+    }
+    function fmtDate() {
+      const d = new Date();
+      const pad = n => String(n).padStart(2, '0');
+      return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+    }
+    function nextVersion() {
+      const nums = state.changeLog.map(item => Number(String(item.version).replace('v','')) || 0);
+      return `v${Math.max(3, ...nums) + 1}`;
+    }
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(showToast.timer);
+      showToast.timer = setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+    function statusTag(status) {
+      const map = { planned: ['待开始', 'amber'], ongoing: ['进行中', 'blue'], done: ['已完成', 'green'], paused: ['待确认', 'gray'] };
+      const item = map[status] || ['待确认', 'gray'];
+      return `<span class="status ${item[1]}">${item[0]}</span>`;
+    }
+    function setPage(page) {
+      state.page = page;
+      document.querySelectorAll('.nav-item').forEach(item => item.classList.toggle('active', item.dataset.page === page));
+      document.getElementById('crumbTitle').textContent = pageTitles[page];
+      render();
+    }
+    function render() {
+      const root = document.getElementById('pageRoot');
+      const pages = { overview: renderOverview, protocol: renderProtocol, 'study-log': renderStudyLog, inlife: renderInLife, samples: renderSamples, changes: renderChanges, team: renderTeam };
+      root.innerHTML = (pages[state.page] || renderOverview)();
+      bindPageEvents();
+    }
+    function renderPageHead(eyebrow, title, note, actions = '') {
+      return `<div class="page-head"><div class="head-note"><div class="eyebrow">${eyebrow}</div><h1>${title}</h1>${note ? `<p>${note}</p>` : ''}</div><div class="actions">${actions}</div></div>`;
+    }
+    function parseDate(value) {
+      const parts = String(value).split('-').map(Number);
+      return new Date(parts[0], parts[1] - 1, parts[2]);
+    }
+    function isoDate(value) {
+      const date = value instanceof Date ? value : parseDate(value);
+      const pad = number => String(number).padStart(2, '0');
+      return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
+    }
+    function addDays(value, amount) {
+      const date = value instanceof Date ? new Date(value) : parseDate(value);
+      date.setDate(date.getDate() + amount);
+      return date;
+    }
+    function formatMonthDay(value) {
+      const date = value instanceof Date ? value : parseDate(value);
+      return `${date.getMonth() + 1}.${date.getDate()}`;
+    }
+    function formatLongDate(value) {
+      const date = value instanceof Date ? value : parseDate(value);
+      return `${date.getMonth() + 1}月${date.getDate()}日`;
+    }
+    function getWeekDays() {
+      const monday = parseDate(state.weekStart);
+      return Array.from({ length: 7 }, (_, index) => addDays(monday, index));
+    }
+    function eventOverlapsWeek(event, weekStart) {
+      if (!event.start || !event.end) return false;
+      const eventStart = parseDate(event.start);
+      const eventEnd = parseDate(event.end);
+      const weekEnd = addDays(weekStart, 6);
+      return eventStart <= weekEnd && eventEnd >= weekStart;
+    }
+    function eventSpan(event, weekStart) {
+      const weekEnd = addDays(weekStart, 6);
+      const eventStart = parseDate(event.start);
+      const eventEnd = parseDate(event.end);
+      const start = eventStart < weekStart ? weekStart : eventStart;
+      const end = eventEnd > weekEnd ? weekEnd : eventEnd;
+      const startIndex = Math.max(0, Math.round((start - weekStart) / 86400000));
+      const endIndex = Math.min(6, Math.round((end - weekStart) / 86400000));
+      return { startIndex, endIndex };
+    }
+    function renderWeekBoard() {
+      const days = getWeekDays();
+      const weekStart = parseDate(state.weekStart);
+      const weekEnd = days[6];
+      const weekdayNames = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
+      const events = state.events.filter(event => eventOverlapsWeek(event, weekStart)).sort((a, b) => a.start.localeCompare(b.start) || a.title.localeCompare(b.title, 'zh-CN'));
+      return `<section class="panel week-panel">
+        <div class="panel-head"><div><h2>本周速览</h2></div><div class="week-actions"><button class="btn" data-week-shift="-7">‹ 上周</button><button class="btn btn-soft" data-week-today="true">本周</button><button class="btn" data-week-shift="7">下周 ›</button></div></div>
+        <div class="week-scroll"><div class="week-board">
+          <div class="week-date-row"><div class="week-corner"></div>${days.map(day => `<div class="week-date">${formatMonthDay(day)}</div>`).join('')}</div>
+          <div class="week-day-row"><div class="week-corner"></div>${weekdayNames.map((name, index) => `<div class="week-day ${index > 4 ? 'weekend':''}">${name}</div>`).join('')}</div>
+          ${events.length ? events.map(event => { const span = eventSpan(event, weekStart); const left = span.startIndex * 100 / 7; const width = (span.endIndex - span.startIndex + 1) * 100 / 7; return `<div class="week-task-row"><div class="week-task-label"><strong>${esc(event.title)}</strong></div><div class="week-track">${days.map((day, index) => `<div class="week-cell ${index > 4 ? 'weekend':''}"></div>`).join('')}<div class="week-bar bar-${esc(event.color || 'blue')}" style="left:${left}%;width:${width}%" data-tooltip="${esc(event.title)} · ${esc(event.note)}" aria-label="${esc(event.title)}"></div></div></div>`; }).join('') : '<div class="week-empty">本周暂无已排入 Study Log 的任务</div>'}
+        </div></div>
+      </section>`;
+    }
+    function renderMilestoneAxis() {
+      const weeks = ['W6', 'W7', 'W8', 'W9', 'W10', 'W11', 'W12', 'W13', 'W14', 'W15', 'W16'];
+      const span = (start, end, label, color) => `<div class="axis-range ${color}" style="left:${start * 10}%;width:${(end - start) * 10}%"><span>${label}</span></div>`;
+      const node = (position, label, color) => `<div class="axis-node ${color}" style="left:${position * 10}%"><i></i><span>${label}</span></div>`;
+      return `<section class="panel milestone-panel"><div class="panel-head"><div><h2>关键节点数轴</h2><div class="panel-kicker">显示关键节点时间和对应区间任务</div></div><span class="status blue">W6—W16</span></div><div class="milestone-scroll"><div class="milestone-axis"><div class="axis-week-row"><div class="axis-label">实验周龄</div><div class="axis-track axis-weeks">${weeks.map(week => `<span>${week}</span>`).join('')}</div></div><div class="axis-line-row"><div class="axis-label">主要区间</div><div class="axis-track axis-line"><div class="axis-base"></div>${span(1, 9, '第7周-第15周 给药', 'axis-green')}${span(4, 10, '第10周起 NS评分', 'axis-purple')}</div></div><div class="axis-line-row"><div class="axis-label">关键节点</div><div class="axis-track axis-line">${node(0, '动物到达/适应', 'axis-blue')}${node(1, '给药开始', 'axis-green')}${node(1, '第7周行为学', 'axis-orange')}${node(3, '第9周行为学', 'axis-orange')}${node(5, '第11周行为学', 'axis-orange')}${node(7, '第13周行为学', 'axis-orange')}${node(9, '第15周行为学', 'axis-orange')}${node(10, '第16周收样', 'axis-red')}</div></div></div></div></section>`;
+    }
+    function renderOverview() {
+      return `
+        ${renderPageHead('Project workspace', '实验项目总览', '', '<button class="btn btn-soft" data-go="protocol">编辑实验方案</button><button class="btn btn-primary" data-go="inlife">新增 In-life 记录</button>')}
+        <div class="metrics overview-metrics">
+          <div class="metric"><div class="metric-label">当前方案</div><div class="metric-value">v0.3</div></div>
+          <div class="metric"><div class="metric-label">人员安排</div><div class="metric-value">4</div><div class="metric-foot">研究负责人、给药组、行为学组、收样组</div></div>
+        </div>
+        <div class="grid-2">
+          <div>
+            ${renderWeekBoard()}
+            <section class="panel">
+              <div class="panel-head"><div><h2>关键数据展示</h2><div class="panel-kicker">体重、抓力、转棒、平衡木、NS评分</div></div><button class="text-link" data-go="inlife">进入数据记录 →</button></div>
+              ${renderWeightChart()}
+            </section>
+          </div>
+          <div>
+            <section class="panel">
+              <div class="panel-head"><div><h2>目前实验进度</h2><div class="panel-kicker">按实验内容查看完成情况</div></div><span class="status blue">6项内容</span></div>
+              <div class="progress-row"><div class="progress-label"><span>给药</span><strong>0%</strong></div><div class="progress"><span style="width:0%"></span></div></div>
+              <div class="progress-row"><div class="progress-label"><span>配药</span><strong>0%</strong></div><div class="progress"><span style="width:0%;background:var(--orange)"></span></div></div>
+              <div class="progress-row"><div class="progress-label"><span>转棒实验</span><strong>0%</strong></div><div class="progress"><span style="width:0%;background:var(--purple)"></span></div></div>
+              <div class="progress-row"><div class="progress-label"><span>后肢抓力</span><strong>0%</strong></div><div class="progress"><span style="width:0%;background:var(--blue)"></span></div></div>
+              <div class="progress-row"><div class="progress-label"><span>平衡木</span><strong>0%</strong></div><div class="progress"><span style="width:0%;background:var(--orange)"></span></div></div>
+              <div class="progress-row"><div class="progress-label"><span>NS评分 / 收样</span><strong>0%</strong></div><div class="progress"><span style="width:0%;background:var(--red)"></span></div></div>
+            </section>
+            <section class="panel">
+              <div class="panel-head"><div><h2>本周注意事项</h2></div></div>
+              <div class="todo-list">
+                <div class="todo"><div class="todo-mark">1</div><div><strong>动物到达</strong><span>预计8月25日到达设施，完成验收、耳标和笼位登记。</span></div></div>
+                <div class="todo"><div class="todo-mark">2</div><div><strong>适应性饲养与分组</strong><span>适应期结束后完成基础能力评估和均衡分组。</span></div></div>
+                <div class="todo"><div class="todo-mark">3</div><div><strong>MTB-1967 配药</strong><span>按99.3%纯度、约362.54 mg、9.00 mL、3.00 mL的当前版本执行。</span></div></div>
+              </div>
+            </section>
+          </div>
+        </div>
+        <div class="footer-note">提示：当前页面中的动物、体重和记录均为示例数据；真实版本会接入权限、数据库和审核流程。</div>`;
+    }
+    function renderWeightChart() {
+      const series = [
+        { key:'WT', label:'WT + Vehicle', color:'#2e9c71' },
+        { key:'Vehicle', label:'Model + Vehicle', color:'#c75d65' },
+        { key:'Riluzole', label:'Riluzole', color:'#3b73d1' },
+        { key:'MTB200', label:'MTB-1967 200', color:'#d8893d' },
+        { key:'MTB400', label:'MTB-1967 400', color:'#8065c4' }
+      ];
+      const W = 680, H = 224, left = 38, right = 12, top = 14, bottom = 31;
+      const innerW = W-left-right, innerH = H-top-bottom, min = 19, max = 27;
+      const x = i => left + i * innerW / (state.weights.length-1);
+      const y = value => top + (max-value) * innerH / (max-min);
+      let svg = `<svg class="chart-svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="示例体重趋势折线图"><title>示例体重趋势折线图</title>`;
+      [20,22,24,26].forEach(tick => { svg += `<line class="chart-grid" x1="${left}" y1="${y(tick)}" x2="${W-right}" y2="${y(tick)}"/><text x="${left-8}" y="${y(tick)+4}" text-anchor="end">${tick}</text>`; });
+      svg += `<line class="chart-axis" x1="${left}" y1="${H-bottom}" x2="${W-right}" y2="${H-bottom}"/>`;
+      state.weights.forEach((point, i) => { svg += `<text x="${x(i)}" y="${H-10}" text-anchor="middle">${point.label}</text>`; });
+      series.forEach(item => {
+        const points = state.weights.map((point, i) => `${x(i)},${y(point[item.key])}`).join(' ');
+        svg += `<polyline class="chart-line" stroke="${item.color}" points="${points}"/>`;
+        state.weights.forEach((point, i) => { svg += `<circle cx="${x(i)}" cy="${y(point[item.key])}" r="3.1" fill="${item.color}" data-tooltip="${item.label} · ${point.label}：${point[item.key]} g"/>`; });
+      });
+      svg += `</svg><div class="legend">${series.map(item => `<span class="legend-item"><i class="legend-dot" style="background:${item.color}"></i>${item.label}</span>`).join('')}</div>`;
+      return `<div class="chart-wrap">${svg}</div>`;
+    }
+    function renderProtocolSubnav(section) {
+      const items = protocolSubnav[section] || [];
+      if (!items.length) return '';
+      const selected = state.protocolSubsection[section] || items[0].key;
+      const meta = section === 'groups' ? `<span class="subnav-meta">${selected === 'satellite' ? '卫星组动物数：25只' : '主要实验组动物数：53只'}</span>` : '';
+      return `<div class="protocol-subnav" role="tablist" aria-label="${esc(state.protocol[section].title)}分类">${items.map(item => `<button class="subnav-item ${selected === item.key ? 'active' : ''}" role="tab" aria-selected="${selected === item.key}" data-protocol-subsection="${section}:${item.key}">${esc(item.label)}</button>`).join('')}${meta}</div>`;
+    }
+    function getProtocolDetail() {
+      const items = protocolSubnav[state.protocolSection];
+      if (!items) return null;
+      const selected = state.protocolSubsection[state.protocolSection] || items[0].key;
+      return state.protocolDetails?.[state.protocolSection]?.[selected] || null;
+    }
+    function renderGroupTable(subsection = 'main') {
+      const isSatellite = subsection === 'satellite';
+      const rows = isSatellite ? [
+        ['卫星组 G1', 'WT + Vehicle', '5', '10 mL/kg'],
+        ['卫星组 G2', 'Model + Vehicle', '5', '10 mL/kg'],
+        ['卫星组 G3', 'Model + Riluzole', '5', '8 mg/10 mL/kg'],
+        ['卫星组 G4', 'Model + MTB-1967', '5', '200 mg/10 mL/kg'],
+        ['卫星组 G5', 'Model + MTB-1967', '5', '400 mg/10 mL/kg']
+      ] : [
+        ['主要组 G1', 'WT + Vehicle', '5', '10 mL/kg'],
+        ['主要组 G2', 'Model + Vehicle', '12', '10 mL/kg'],
+        ['主要组 G3', 'Model + Riluzole', '12', '8 mg/10 mL/kg'],
+        ['主要组 G4', 'Model + MTB-1967', '12', '200 mg/10 mL/kg'],
+        ['主要组 G5', 'Model + MTB-1967', '12', '400 mg/10 mL/kg']
+      ];
+      return '<div class="protocol-table-preview"><div class="table-wrap"><table><thead><tr><th>组别</th><th>Test Article / Vehicle</th><th>动物数量</th><th>给药方案（PO，QD）</th></tr></thead><tbody>' +
+        rows.map(row => '<tr><td><strong>' + esc(row[0]) + '</strong></td><td>' + esc(row[1]) + '</td><td>' + esc(row[2]) + '</td><td>' + esc(row[3]) + '</td></tr>').join('') +
+        '</tbody></table></div></div>';
+    }
+    function renderProtocolBody(body) {
+      return String(body || '').split(/\n{2,}/).filter(Boolean).map(paragraph => '<p>' + esc(paragraph).replace(/\n/g, '<br>') + '</p>').join('');
+    }
+    function renderProtocol() {
+      const current = state.protocol[state.protocolSection];
+      const detail = getProtocolDetail();
+      const body = detail ? detail.body : current.body;
+      const keys = protocolNav.map(item => item.key);
+      return `
+        ${renderPageHead('Protocol workspace', '实验方案', '', '<button class="btn btn-soft" data-go="changes">查看修改日志</button>')}
+        <div class="protocol-layout">
+          <section class="panel">
+            <div class="panel-head"><div><h2>方案章节</h2><div class="panel-kicker">当前版本 v0.3</div></div></div>
+            <div class="section-list">${keys.map(key => `<button class="section-item ${state.protocolSection === key ? 'active':''}" data-protocol-section="${key}">${esc(state.protocol[key].title)}<span>${state.protocol[key].version} · 可编辑</span></button>`).join('')}</div>
+          </section>
+          <section class="panel">
+            <div class="editor-head"><div><div class="editor-title"><h2>${esc(current.title)}</h2><span class="version">${esc(current.version)}</span></div><div class="panel-kicker">最后更新：${state.changeLog[0]?.date || '—'}</div></div></div>
+            ${renderProtocolSubnav(state.protocolSection)}
+            <div id="protocolEditor" class="protocol-body" contenteditable="true" role="textbox" aria-label="方案正文">${renderProtocolBody(body)}</div>
+            ${state.protocolSection === 'groups' ? renderGroupTable(state.protocolSubsection.groups) : ''}
+            <div class="editor-foot"><div class="actions"><button class="btn" id="discardProtocol">放弃修改</button><button class="btn btn-primary" id="saveProtocol">保存为新版本</button></div><p>保存后将生成新的版本号，并记录修改前后内容、修改人、时间和原因。</p></div>
+          </section>
+        </div>`;
+    }
+    function renderStudyLog() {
+      return `
+        ${renderPageHead('Daily operations', 'Study Log', '', '<button class="btn btn-primary icon-add" id="toggleTaskForm" aria-label="新增任务">＋</button>')}
+        <section class="panel log-filters">
+          <div class="panel-head"><div><h2>搜索与筛选</h2></div></div>
+          <div class="filters"><div class="field"><label>实验状态</label><select id="taskFilter"><option value="all">全部状态</option><option value="planned">待开始</option><option value="ongoing">进行中</option><option value="done">已完成</option></select></div><div class="field grow"><label>实验内容</label><select id="taskSearch"><option value="">全部实验内容</option><option value="动物到达">动物到达</option><option value="适应性饲养">适应性饲养</option><option value="配药">配药</option><option value="给药">给药</option><option value="抓力">后肢抓力</option><option value="转棒">转棒实验</option><option value="平衡木">平衡木</option><option value="NS">NS评分</option><option value="收样">收样</option></select></div></div>
+        </section>
+        ${renderMilestoneAxis()}
+        <section class="panel daily-task-panel">
+          <div class="panel-head"><div><h2>每日具体任务</h2><div class="panel-kicker">当前周：${formatLongDate(parseDate(state.weekStart))}—${formatLongDate(addDays(parseDate(state.weekStart), 6))} · 可用上方周视图切换</div></div><button class="text-link" data-go="overview">返回总览周视图 →</button></div>
+          <div class="record-form" id="taskForm"><div class="form-grid"><div class="field"><label>计划日期</label><input id="newTaskDate" type="date" value="${esc(state.weekStart)}" /></div><div class="field"><label>任务阶段</label><select id="newTaskPhase"><option>行为学</option><option>给药期</option><option>收样期</option><option>数据分析</option></select></div><div class="field wide"><label>任务名称</label><input id="newTaskTitle" placeholder="例如：完成第11周后肢抓力测试" /></div><div class="field"><label>负责人</label><input id="newTaskOwner" placeholder="姓名/小组" /></div></div><div class="form-actions"><button class="btn" id="cancelTask">取消</button><button class="btn btn-primary" id="saveTask">保存任务</button></div></div>
+          <div class="table-wrap"><table><thead><tr><th>日期</th><th>星期</th><th>具体任务</th><th>阶段</th><th>负责人</th><th>状态</th><th>操作</th></tr></thead><tbody id="taskTableBody">${renderDailyTaskRows(state.events)}</tbody></table></div>
+        </section>
+        <div class="grid-2 equal" style="margin-top:18px"><section class="panel"><div class="panel-head"><div><h2>关键周期</h2><div class="panel-kicker">统一使用实验周龄语言</div></div></div><div class="todo-list"><div class="todo"><div class="todo-mark">1</div><div><strong>第7周-第15周 给药</strong><span>Vehicle、Riluzole、MTB-1967 200/400，均 QD，共56天。</span></div></div><div class="todo"><div class="todo-mark">2</div><div><strong>第7/9/11/13/15周 行为学</strong><span>后肢抓力、疲劳转棒和平衡木。</span></div></div><div class="todo"><div class="todo-mark">3</div><div><strong>第10周起 NS 评分</strong><span>每周两次；主要组至死亡前，卫星组至第16周收样前。</span></div></div><div class="todo"><div class="todo-mark">4</div><div><strong>第16周 卫星组收样</strong><span>血浆、CSF、腓肠肌、EDL、腰椎脊髓 L3-L6。</span></div></div></div></section><section class="panel"><div class="panel-head"><div><h2>调整备注</h2><div class="panel-kicker">记录计划与实际差异</div></div></div><div class="callout">延期、漏给、部分给药、样本异常和设备异常可先在这里登记，并关联到具体动物或任务。</div></section></div>`;
+    }
+    function renderDailyTaskRows(events) {
+      const weekStart = parseDate(state.weekStart);
+      const weekDays = getWeekDays();
+      const weekdayNames = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
+      const rows = [];
+      events.filter(event => eventOverlapsWeek(event, weekStart)).forEach(event => {
+        const span = eventSpan(event, weekStart);
+        for (let index = span.startIndex; index <= span.endIndex; index += 1) rows.push({ event, day: weekDays[index], weekday: weekdayNames[index] });
+      });
+      rows.sort((a, b) => a.day - b.day || a.event.title.localeCompare(b.event.title, 'zh-CN'));
+      if (!rows.length) return '<tr><td colspan="7" class="empty">本周暂无符合条件的每日任务</td></tr>';
+      return rows.map(row => `<tr><td><strong>${formatMonthDay(row.day)}</strong><div class="small">${formatLongDate(row.day)}</div></td><td>${row.weekday}</td><td><strong>${esc(row.event.title)}</strong><div class="small">${esc(row.event.note)}</div></td><td>${esc(row.event.phase)}</td><td>${esc(row.event.owner)}</td><td>${statusTag(row.event.status)}</td><td>${row.event.status === 'done' ? '<span class="small">已完成</span>' : `<button class="table-action" data-complete-task="${row.event.id}">${row.event.status === 'ongoing' ? '标记完成':'完成任务'}</button>`}</td></tr>`).join('');
+    }
+    function renderInLife() {
+      const rows = state.inlifeRecords;
+      return `
+        ${renderPageHead('Animal-level records', 'In-life Record', '按动物和时间点记录体重、NS、给药及一般状态；当前为示例数据，可现场逐条录入。', '<button class="btn btn-primary" id="toggleRecordForm">新增记录</button>')}
+        <div class="metrics"><div class="metric"><div class="metric-label">已示例录入</div><div class="metric-value">${rows.length}</div><div class="metric-foot">条 In-life 记录</div></div><div class="metric"><div class="metric-label">加密观察</div><div class="metric-value">1</div><div class="metric-foot">NS=1 后每两天称重</div></div><div class="metric"><div class="metric-label">今日给药</div><div class="metric-value">0/78</div><div class="metric-foot">等待真实给药窗口开始</div></div><div class="metric"><div class="metric-label">记录原则</div><div class="metric-value" style="font-size:21px">可追溯</div><div class="metric-foot">每条记录保留操作者</div></div></div>
+        <section class="panel"><div class="panel-head"><div><h2>数据查询</h2><div class="panel-kicker">按记录类型、组别和动物编号筛选</div></div></div><div class="filters"><div class="field"><label>记录类型</label><select id="recordFilter"><option value="all">全部类型</option><option>体重</option><option>给药</option><option>NS评分</option></select></div><div class="field"><label>组别</label><select id="groupFilter"><option value="all">全部组别</option><option>WT + Vehicle</option><option>Model + Vehicle</option><option>Model + Riluzole</option><option>MTB-1967 200</option><option>MTB-1967 400</option></select></div><div class="field grow"><label>搜索动物编号</label><input id="animalSearch" placeholder="例如 WT-001" /></div></div>
+        <div class="record-form" id="recordForm"><div class="form-grid"><div class="field"><label>日期/时间</label><input id="recordDate" value="2026-08-14 14:00" /></div><div class="field"><label>Animal ID</label><select id="recordAnimal">${state.animals.map(a => `<option>${esc(a.id)}</option>`).join('')}</select></div><div class="field"><label>记录类型</label><select id="recordType"><option>体重</option><option>给药</option><option>NS评分</option><option>一般状态</option></select></div><div class="field"><label>数值</label><input id="recordValue" placeholder="例如：21.4" /></div><div class="field"><label>单位</label><input id="recordUnit" placeholder="g / mL / 分" /></div><div class="field wide"><label>备注</label><input id="recordNote" placeholder="记录观察、制剂批号或异常情况" /></div></div><div class="form-actions"><button class="btn" id="cancelRecord">取消</button><button class="btn btn-primary" id="saveRecord">保存记录</button></div></div>
+        <div class="table-wrap"><table><thead><tr><th>日期/时间</th><th>动物</th><th>记录类型</th><th>数值</th><th>备注</th><th>操作者</th></tr></thead><tbody id="inlifeBody">${renderInlifeRows(rows)}</tbody></table></div></section>
+        <section class="panel" style="margin-top:18px"><div class="panel-head"><div><h2>数据可视化</h2><div class="panel-kicker">体重、抓力、转棒、平衡木、NS评分</div></div></div>${renderWeightChart()}</section>`;
+    }
+    function renderInlifeRows(rows) {
+      if (!rows.length) return '<tr><td colspan="6" class="empty">暂无符合条件的记录</td></tr>';
+      return rows.map(row => `<tr><td>${esc(row.date)}</td><td><strong>${esc(row.animal)}</strong></td><td><span class="status ${row.type === 'NS评分' ? 'amber' : row.type === '给药' ? 'blue' : 'green'}">${esc(row.type)}</span></td><td><strong>${esc(row.value)} ${esc(row.unit)}</strong></td><td class="small">${esc(row.note)}</td><td>${esc(row.operator)}</td></tr>`).join('');
+    }
+    function daysUntilSample() {
+      const target = parseDate(state.sampleDate || '2026-11-03');
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      return Math.max(0, Math.ceil((target - today) / 86400000));
+    }
+    function renderSamples() {
+      const totalPlan = state.samples.reduce((sum, item) => sum + item.plan, 0);
+      const totalCollected = state.samples.reduce((sum, item) => sum + item.collected, 0);
+      return `
+        ${renderPageHead('Sample chain of custody', '样本与收样', '把收样、处理、冻存和后续流转放在同一条样本链路中；当前数据为计划示例。', '<button class="btn btn-primary" data-go="inlife">新增采样记录</button>')}
+        <div class="grid-3"><div class="sample-card countdown-card"><div class="small">距收样还有</div><div class="num">${daysUntilSample()}<span style="font-size:15px;font-weight:700;margin-left:6px">天</span></div><div class="small">预计第16周卫星组终点收样</div></div><div class="sample-card"><div class="small">计划样本总量</div><div class="num">${totalPlan}</div><div class="small">按当前方案结构统计</div></div><div class="sample-card"><div class="small">已收集</div><div class="num">${totalCollected}</div><div class="small">真实实验开始后自动累积</div></div></div>
+        <section class="panel" style="margin-top:18px"><div class="panel-head"><div><h2>样本计划与处理规则</h2><div class="panel-kicker">卫星组：血浆、CSF、腓肠肌、EDL、腰椎脊髓 L3-L6</div></div><span class="status amber">检测项目 TBD</span></div><div class="table-wrap"><table><thead><tr><th>样本类型</th><th>计划数量</th><th>已收集</th><th>已入库</th><th>进度</th><th>处理/备注</th></tr></thead><tbody>${state.samples.map(sample => { const pct = sample.plan ? Math.round(sample.collected / sample.plan * 100) : 0; return `<tr><td><strong>${esc(sample.type)}</strong></td><td>${sample.plan}</td><td>${sample.collected}</td><td>${sample.stored}</td><td><div class="progress" style="width:110px"><span style="width:${pct}%"></span></div><div class="small" style="margin-top:4px">${pct}%</div></td><td class="small">${esc(sample.note)}</td></tr>`; }).join('')}</tbody></table></div></section>
+        <div class="grid-2 equal" style="margin-top:18px"><section class="panel"><div class="panel-head"><div><h2>样本身份链</h2><div class="panel-kicker">建议每个样本关联动物、时间和位置</div></div></div><div class="callout">Sample ID → Animal ID → 采集时间 → 处理方式 → 冰箱/盒号/孔位 → 流转状态。系统会保留每个节点的操作者和时间。</div></section><section class="panel"><div class="panel-head"><div><h2>未决事项</h2><div class="panel-kicker">可在方案页编辑后同步</div></div></div><div class="todo-list"><div class="todo"><div class="todo-mark">!</div><div><strong>腓肠肌处理方法</strong><span>数量、称重、固定/包埋、保存方式尚未确定。</span></div></div><div class="todo"><div class="todo-mark">!</div><div><strong>5.15 检测项目</strong><span>在方案页编辑后写入修改日志。</span></div></div></div></section></div>`;
+    }
+    function renderChanges() {
+      return `
+        ${renderPageHead('Audit trail', '修改日志', '所有方案正文、表格和 TBD 内容的修改都追加记录，便于追溯每个版本的来源。', '<button class="btn btn-primary" id="exportChanges">导出日志 JSON</button>')}
+        <section class="panel"><div class="panel-head"><div><h2>方案版本链</h2><div class="panel-kicker">当前版本 v0.3 · 可继续生成 v0.4、v0.5…</div></div><span class="status green">只追加，不覆盖</span></div>${renderChangeTable(state.changeLog)}<div class="footer-note">日志字段：Change ID、版本、日期/时间、修改人、章节、修改前内容、修改后内容、修改原因、审核状态。</div></section>
+        <section class="panel" style="margin-top:18px"><div class="panel-head"><div><h2>可编辑内容边界</h2><div class="panel-kicker">后续检测项目允许维护</div></div></div><div class="grid-3"><div class="callout">方案正文<br><b>允许编辑</b><br>保存后生成版本。</div><div class="callout">5.15 检测 TBD<br><b>允许补充</b><br>必须填写原因。</div><div class="callout">原始实验记录<br><b>不直接覆盖</b><br>保留审计信息。</div></div></section>`;
+    }
+    function renderChangeTable(rows) {
+      if (!rows.length) return '<div class="empty">暂无修改记录</div>';
+      return `<div class="table-wrap"><table><thead><tr><th>时间</th><th>版本</th><th>章节</th><th>修改前 → 修改后</th><th>修改人</th><th>状态</th></tr></thead><tbody>${rows.map(log => `<tr><td class="text-nowrap">${esc(log.date)}</td><td><span class="version">${esc(log.version)}</span></td><td><strong>${esc(log.section)}</strong><div class="small">${esc(log.reason)}</div></td><td><div class="small"><span style="color:var(--red)">${esc(log.before)}</span><br><span style="color:var(--green)">→ ${esc(log.after)}</span></div></td><td>${esc(log.author)}</td><td>${log.status === '已记录' ? '<span class="status green">已记录</span>' : '<span class="status amber">待审核</span>'}</td></tr>`).join('')}</tbody></table></div>`;
+    }
+    function renderTeam() {
+      return `
+        ${renderPageHead('Collaboration', '协作成员', '原型阶段先展示账号、角色和权限关系；正式版本接入登录、审核和多人并发数据。', '<button class="btn btn-primary" id="inviteMember">添加成员</button>')}
+        <section class="panel"><div class="panel-head"><div><h2>团队账号</h2><div class="panel-kicker">本地演示账户，不代表真实登录</div></div><span class="status blue">4 个演示账号</span></div><div class="table-wrap"><table><thead><tr><th>成员</th><th>角色</th><th>状态</th><th>权限</th></tr></thead><tbody>${state.team.map(member => `<tr><td><strong>${esc(member.name)}</strong></td><td><span class="role-chip">${esc(member.role)}</span></td><td><span class="status ${member.status === '当前账户' ? 'green':'gray'}">${esc(member.status)}</span></td><td><div class="permission-list">${member.permissions.map(permission => `<span class="permission">${esc(permission)}</span>`).join('')}</div></td></tr>`).join('')}</tbody></table></div></section>
+        <div class="grid-2 equal" style="margin-top:18px"><section class="panel"><div class="panel-head"><div><h2>权限设计预览</h2><div class="panel-kicker">按角色控制数据访问</div></div></div><div class="todo-list"><div class="todo"><div class="todo-mark">A</div><div><strong>管理员 / 研究负责人</strong><span>方案编辑、成员管理、记录审核、导出。</span></div></div><div class="todo"><div class="todo-mark">B</div><div><strong>实验执行人员</strong><span>配药、给药、动物状态和样本记录。</span></div></div><div class="todo"><div class="todo-mark">C</div><div><strong>数据录入 / 只读</strong><span>按授权录入或查看，不能修改已审核历史。</span></div></div></div></section><section class="panel"><div class="panel-head"><div><h2>软件化方向</h2><div class="panel-kicker">第四阶段的基础</div></div></div><div class="callout">正式版本建议使用本地服务 + 数据库 + 账号权限。原型中的 localStorage 会替换为共享数据库，并保留同样的修改日志字段。</div></section></div>`;
+    }
+    function applyFilters() {
+      if (state.page === 'study-log') {
+        const filter = document.getElementById('taskFilter')?.value || 'all';
+        const search = (document.getElementById('taskSearch')?.value || '').toLowerCase();
+        const events = state.events.filter(event => (filter === 'all' || event.status === filter) && `${event.title} ${event.owner} ${event.phase}`.toLowerCase().includes(search));
+        document.getElementById('taskTableBody').innerHTML = renderDailyTaskRows(events);
+      }
+      if (state.page === 'inlife') {
+        const type = document.getElementById('recordFilter')?.value || 'all';
+        const group = document.getElementById('groupFilter')?.value || 'all';
+        const search = (document.getElementById('animalSearch')?.value || '').toLowerCase();
+        const groupByAnimal = Object.fromEntries(state.animals.map(a => [a.id, a.group]));
+        const rows = state.inlifeRecords.filter(row => (type === 'all' || row.type === type) && (group === 'all' || groupByAnimal[row.animal] === group) && row.animal.toLowerCase().includes(search));
+        document.getElementById('inlifeBody').innerHTML = renderInlifeRows(rows);
+      }
+    }
+    function bindPageEvents() {
+      document.querySelectorAll('[data-page]').forEach(btn => btn.addEventListener('click', () => setPage(btn.dataset.page)));
+      document.querySelectorAll('[data-go]').forEach(btn => btn.addEventListener('click', () => setPage(btn.dataset.go)));
+      document.querySelectorAll('[data-protocol-section]').forEach(btn => btn.addEventListener('click', () => { state.protocolSection = btn.dataset.protocolSection; render(); }));
+      document.querySelectorAll('[data-protocol-subsection]').forEach(btn => btn.addEventListener('click', () => {
+        const [section, subsection] = btn.dataset.protocolSubsection.split(':');
+        state.protocolSubsection[section] = subsection;
+        saveState();
+        render();
+      }));
+      document.querySelectorAll('[data-week-shift]').forEach(btn => btn.addEventListener('click', () => { state.weekStart = isoDate(addDays(parseDate(state.weekStart), Number(btn.dataset.weekShift))); saveState(); render(); }));
+      document.querySelectorAll('[data-week-today]').forEach(btn => btn.addEventListener('click', () => { const today = new Date(); const mondayOffset = (today.getDay() + 6) % 7; state.weekStart = isoDate(addDays(today, -mondayOffset)); saveState(); render(); }));
+      document.querySelectorAll('[data-complete-task]').forEach(btn => btn.addEventListener('click', () => { const event = state.events.find(item => item.id === btn.dataset.completeTask); if (event) { event.status = 'done'; saveState(); render(); showToast('任务已标记为完成'); } }));
+      document.getElementById('toggleTaskForm')?.addEventListener('click', () => document.getElementById('taskForm').classList.toggle('open'));
+      document.getElementById('cancelTask')?.addEventListener('click', () => document.getElementById('taskForm').classList.remove('open'));
+      document.getElementById('saveTask')?.addEventListener('click', saveTask);
+      document.getElementById('taskFilter')?.addEventListener('change', applyFilters);
+      document.getElementById('taskSearch')?.addEventListener('input', applyFilters);
+      document.getElementById('taskSearch')?.addEventListener('change', applyFilters);
+      document.getElementById('toggleRecordForm')?.addEventListener('click', () => document.getElementById('recordForm').classList.toggle('open'));
+      document.getElementById('cancelRecord')?.addEventListener('click', () => document.getElementById('recordForm').classList.remove('open'));
+      document.getElementById('saveRecord')?.addEventListener('click', saveRecord);
+      document.getElementById('recordFilter')?.addEventListener('change', applyFilters);
+      document.getElementById('groupFilter')?.addEventListener('change', applyFilters);
+      document.getElementById('animalSearch')?.addEventListener('input', applyFilters);
+      document.getElementById('saveProtocol')?.addEventListener('click', saveProtocol);
+      document.getElementById('discardProtocol')?.addEventListener('click', () => { render(); showToast('已放弃未保存修改'); });
+      document.getElementById('exportChanges')?.addEventListener('click', exportChanges);
+      document.getElementById('inviteMember')?.addEventListener('click', () => showToast('原型提示：正式版本将在这里邀请成员并设置角色'));
+    }
+    function saveProtocol() {
+      const editor = document.getElementById('protocolEditor');
+      const reason = '页面正文直接编辑';
+      if (!editor) { return; }
+      const current = state.protocol[state.protocolSection];
+      const detail = getProtocolDetail();
+      const before = detail ? detail.body : current.body;
+      const after = (editor.innerText || editor.textContent || '').trim();
+      if (!after || before === after) { showToast('内容没有变化'); return; }
+      const version = nextVersion();
+      if (detail) detail.body = after;
+      else current.body = after;
+      current.version = version;
+      state.changeLog.unshift({ id: `CHG-${String(state.changeLog.length + 1).padStart(3,'0')}`, version, date: fmtDate(), author: '林研究员', section: detail ? `${current.title} · ${detail.title}` : current.title, before, after, reason, status: '待审核' });
+      saveState(); render(); showToast(`已保存为 ${version}，修改日志已生成`);
+    }
+    function saveTask() {
+      const title = document.getElementById('newTaskTitle')?.value.trim();
+      const date = document.getElementById('newTaskDate')?.value.trim();
+      const phase = document.getElementById('newTaskPhase')?.value;
+      const owner = document.getElementById('newTaskOwner')?.value.trim() || '未指定';
+      if (!title || !date) { showToast('请填写计划时间和任务名称'); return; }
+      state.events.push({ id: `EV-${String(state.events.length+1).padStart(3,'0')}`, date, start: date, end: date, color:'blue', phase, title, owner, status:'planned', note:'新增任务' });
+      saveState(); render(); showToast('Study Log 任务已新增');
+    }
+    function saveRecord() {
+      const animal = document.getElementById('recordAnimal')?.value;
+      const type = document.getElementById('recordType')?.value;
+      const date = document.getElementById('recordDate')?.value.trim() || fmtDate();
+      const value = document.getElementById('recordValue')?.value.trim();
+      const unit = document.getElementById('recordUnit')?.value.trim();
+      const note = document.getElementById('recordNote')?.value.trim() || '新增示例记录';
+      if (!animal || !value) { showToast('请填写动物和数值'); return; }
+      state.inlifeRecords.unshift({ id:`IL-${String(state.inlifeRecords.length+1).padStart(3,'0')}`, date, animal, type, value, unit, note, operator:'林研究员' });
+      saveState(); render(); showToast('In-life 记录已保存');
+    }
+    function exportChanges() {
+      const blob = new Blob([JSON.stringify(state.changeLog, null, 2)], { type: 'application/json;charset=utf-8' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = `SOD1G93A_change_log_${new Date().toISOString().slice(0,10)}.json`;
+      link.click();
+      setTimeout(() => URL.revokeObjectURL(link.href), 500);
+      showToast('修改日志已导出');
+    }
+    document.addEventListener('click', event => {
+      if (event.target.id === 'resetDemo') {
+        if (confirm('确认重置本地演示数据吗？这会清除本页面保存的新增记录和修改。')) { state = clone(defaultState); saveState(); setPage('overview'); showToast('演示数据已重置'); }
+      }
+    });
+    document.querySelectorAll('[data-page]').forEach(btn => btn.addEventListener('click', () => setPage(btn.dataset.page)));
+    render();
+  </script>
+</body>
+</html>
