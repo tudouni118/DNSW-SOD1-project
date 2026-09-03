@@ -1,0 +1,3051 @@
+{
+  "mice": [
+    {
+      "cage_id": "1",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 22.14,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-28",
+          "weight": null,
+          "grip": [],
+          "rotarod": [
+            {
+              "speed": 40.0,
+              "latency_to_fall": 300.0
+            },
+            {
+              "speed": 40.0,
+              "latency_to_fall": 300.0
+            },
+            {
+              "speed": 40.0,
+              "latency_to_fall": 300.0
+            }
+          ],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "pre",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 22.56,
+          "grip": [
+            107.5,
+            106.0,
+            78.0,
+            105.7,
+            91.5,
+            104.0,
+            106.0,
+            104.2,
+            98.3,
+            59.0
+          ],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-09-03",
+          "weight": null,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [
+              6.87,
+              13.69
+            ],
+            "12mm": [
+              5.19,
+              4.63
+            ]
+          },
+          "rotarod_phase": "pre",
+          "bb_phase": "pre",
+          "neurological_score": null
+        }
+      ],
+      "tail_id": "1",
+      "ear_tag": "",
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "cage_id": "1",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 21.55,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 22.43,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "tail_id": "2",
+      "ear_tag": "",
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "3",
+      "cage_id": "1",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 24.31,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 24.66,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "4",
+      "cage_id": "1",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 21.16,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 22.13,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "5",
+      "cage_id": "1",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 20.23,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 21.17,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "6",
+      "cage_id": "2",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 20.9,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 21.54,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "7",
+      "cage_id": "2",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 21.94,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 23.19,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "8",
+      "cage_id": "2",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 18.33,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 19.43,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "9",
+      "cage_id": "2",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 19.87,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 20.25,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "10",
+      "cage_id": "2",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 22.43,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 22.92,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "11",
+      "cage_id": "3",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 20.35,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 21.83,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "13",
+      "cage_id": "3",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 20.23,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 21.73,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "14",
+      "cage_id": "3",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 17.9,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 19.37,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "15",
+      "cage_id": "3",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 19.97,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 20.17,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "16",
+      "cage_id": "4",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 18.4,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 19.86,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "17",
+      "cage_id": "4",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 18.87,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 19.61,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "18",
+      "cage_id": "4",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 19.86,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 20.9,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "19",
+      "cage_id": "4",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 19.94,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 21.62,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "20",
+      "cage_id": "4",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 19.03,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 20.49,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "21",
+      "cage_id": "5",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 19.9,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 20.95,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "22",
+      "cage_id": "5",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 22.81,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 23.34,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "23",
+      "cage_id": "5",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 22.3,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 23.34,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "12",
+      "cage_id": "3",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 22.07,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 22.55,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "24",
+      "cage_id": "5",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 23.64,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 24.51,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "25",
+      "cage_id": "5",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 20.95,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 22.25,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "26",
+      "cage_id": "6",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 18.03,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 18.82,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "27",
+      "cage_id": "6",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 20.57,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 21.38,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "28",
+      "cage_id": "6",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 18.52,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 19.83,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "29",
+      "cage_id": "6",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 20.36,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 21.66,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "30",
+      "cage_id": "5",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 22.44,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 22.79,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "31",
+      "cage_id": "7",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 19.79,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 20.7,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "32",
+      "cage_id": "7",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 22.17,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 22.73,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "33",
+      "cage_id": "7",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 21.24,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 22.14,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "34",
+      "cage_id": "7",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 22.68,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 24.47,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "35",
+      "cage_id": "7",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 24.31,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 24.82,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "36",
+      "cage_id": "8",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 21.07,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 22.19,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "37",
+      "cage_id": "8",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 19.82,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 21.37,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "38",
+      "cage_id": "8",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 20.38,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 21.64,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "39",
+      "cage_id": "8",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 19.77,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 20.53,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "40",
+      "cage_id": "8",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 19.42,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 20.62,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "41",
+      "cage_id": "9",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 23.16,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 23.81,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "42",
+      "cage_id": "9",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 22.41,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 22.62,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "43",
+      "cage_id": "9",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 20.05,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 21.4,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "44",
+      "cage_id": "9",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 25.45,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 26.23,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "45",
+      "cage_id": "9",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 21.98,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 21.82,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "46",
+      "cage_id": "10",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 19.49,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 20.65,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "47",
+      "cage_id": "10",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 24.55,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 24.76,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "48",
+      "cage_id": "10",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 20.35,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 20.9,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "49",
+      "cage_id": "10",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 20.62,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 22.14,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "50",
+      "cage_id": "10",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 21.48,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        },
+        {
+          "date": "2026-08-31",
+          "weight": 22.31,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "51",
+      "cage_id": "11",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 18.63,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "52",
+      "cage_id": "11",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 19.49,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "53",
+      "cage_id": "11",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 19.29,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "54",
+      "cage_id": "11",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 18.43,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "55",
+      "cage_id": "11",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 18.08,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "56",
+      "cage_id": "12",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 22.16,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "57",
+      "cage_id": "12",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 21.48,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "58",
+      "cage_id": "12",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 21.43,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "59",
+      "cage_id": "12",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 21.32,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "60",
+      "cage_id": "12",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 19.65,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "61",
+      "cage_id": "13",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 17.54,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "62",
+      "cage_id": "13",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 18.59,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "63",
+      "cage_id": "13",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 23.73,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "64",
+      "cage_id": "13",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 22.06,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "65",
+      "cage_id": "13",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 19.27,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "66",
+      "cage_id": "14",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 21.14,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "67",
+      "cage_id": "14",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 20.76,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "68",
+      "cage_id": "14",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 21.0,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "69",
+      "cage_id": "14",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 21.45,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "70",
+      "cage_id": "14",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 20.79,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Brownish-grey / a",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "71",
+      "cage_id": "15",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 21.25,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Solid Black / A",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "72",
+      "cage_id": "15",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 20.33,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Solid Black / A",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "73",
+      "cage_id": "15",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 20.19,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Solid Black / A",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "74",
+      "cage_id": "15",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 25.56,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Solid Black / A",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "75",
+      "cage_id": "15",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 19.0,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Solid Black / A",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "76",
+      "cage_id": "16",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 20.67,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Solid Black / A",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "77",
+      "cage_id": "16",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 21.46,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Solid Black / A",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "78",
+      "cage_id": "16",
+      "ear_tag": "",
+      "group": "",
+      "strain": "B6SJL-SOD1G93A",
+      "sex": "Male",
+      "records": [
+        {
+          "date": "2026-08-26",
+          "weight": 18.52,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "sub_group": "",
+      "coat_color": "Solid Black / A",
+      "arrival_date": "2026-08-25"
+    },
+    {
+      "tail_id": "79",
+      "cage_id": "17",
+      "ear_tag": "",
+      "group": "1",
+      "sub_group": "",
+      "strain": "WT",
+      "sex": "Male",
+      "coat_color": "Brownish-grey / a",
+      "records": [
+        {
+          "date": "2026-08-31",
+          "weight": 24.32,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "arrival_date": "2026-08-28"
+    },
+    {
+      "tail_id": "80",
+      "cage_id": "18",
+      "ear_tag": "",
+      "group": "1",
+      "sub_group": "",
+      "strain": "WT",
+      "sex": "Male",
+      "coat_color": "Brownish-grey / a",
+      "records": [
+        {
+          "date": "2026-09-02",
+          "weight": 21.09,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "arrival_date": "2026-09-01"
+    },
+    {
+      "tail_id": "81",
+      "cage_id": "18",
+      "ear_tag": "",
+      "group": "1",
+      "sub_group": "",
+      "strain": "WT",
+      "sex": "Male",
+      "coat_color": "Brownish-grey / a",
+      "records": [
+        {
+          "date": "2026-09-02",
+          "weight": 21.74,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "arrival_date": "2026-09-01"
+    },
+    {
+      "tail_id": "82",
+      "cage_id": "18",
+      "ear_tag": "",
+      "group": "1",
+      "sub_group": "",
+      "strain": "WT",
+      "sex": "Male",
+      "coat_color": "Brownish-grey / a",
+      "records": [
+        {
+          "date": "2026-09-02",
+          "weight": 23.02,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "arrival_date": "2026-09-01"
+    },
+    {
+      "tail_id": "83",
+      "cage_id": "18",
+      "ear_tag": "",
+      "group": "1",
+      "sub_group": "",
+      "strain": "WT",
+      "sex": "Male",
+      "coat_color": "Brownish-grey / a",
+      "records": [
+        {
+          "date": "2026-09-02",
+          "weight": 18.62,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "arrival_date": "2026-09-01"
+    },
+    {
+      "tail_id": "84",
+      "cage_id": "18",
+      "ear_tag": "",
+      "group": "1",
+      "sub_group": "",
+      "strain": "WT",
+      "sex": "Male",
+      "coat_color": "Brownish-grey / a",
+      "records": [
+        {
+          "date": "2026-09-02",
+          "weight": 22.02,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "arrival_date": "2026-09-01"
+    },
+    {
+      "tail_id": "85",
+      "cage_id": "19",
+      "ear_tag": "",
+      "group": "1",
+      "sub_group": "",
+      "strain": "WT",
+      "sex": "Male",
+      "coat_color": "Brownish-grey / a",
+      "records": [
+        {
+          "date": "2026-09-02",
+          "weight": 22.51,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "arrival_date": "2026-09-01"
+    },
+    {
+      "tail_id": "86",
+      "cage_id": "19",
+      "ear_tag": "",
+      "group": "1",
+      "sub_group": "",
+      "strain": "WT",
+      "sex": "Male",
+      "coat_color": "Brownish-grey / a",
+      "records": [
+        {
+          "date": "2026-09-02",
+          "weight": 22.32,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "arrival_date": "2026-09-01"
+    },
+    {
+      "tail_id": "87",
+      "cage_id": "19",
+      "ear_tag": "",
+      "group": "1",
+      "sub_group": "",
+      "strain": "WT",
+      "sex": "Male",
+      "coat_color": "Brownish-grey / a",
+      "records": [
+        {
+          "date": "2026-09-02",
+          "weight": 23.99,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "arrival_date": "2026-09-01"
+    },
+    {
+      "tail_id": "88",
+      "cage_id": "19",
+      "ear_tag": "",
+      "group": "1",
+      "sub_group": "",
+      "strain": "WT",
+      "sex": "Male",
+      "coat_color": "Brownish-grey / a",
+      "records": [
+        {
+          "date": "2026-09-02",
+          "weight": 23.9,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "arrival_date": "2026-09-01"
+    },
+    {
+      "tail_id": "89",
+      "cage_id": "19",
+      "ear_tag": "",
+      "group": "1",
+      "sub_group": "",
+      "strain": "WT",
+      "sex": "Male",
+      "coat_color": "Brownish-grey / a",
+      "records": [
+        {
+          "date": "2026-09-02",
+          "weight": 21.01,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "arrival_date": "2026-09-01"
+    },
+    {
+      "tail_id": "90",
+      "cage_id": "20",
+      "ear_tag": "",
+      "group": "1",
+      "sub_group": "",
+      "strain": "WT",
+      "sex": "Male",
+      "coat_color": "Brownish-grey / a",
+      "records": [
+        {
+          "date": "2026-09-02",
+          "weight": 20.83,
+          "grip": [],
+          "rotarod": [],
+          "balance_beam": {
+            "6mm": [],
+            "12mm": []
+          },
+          "rotarod_phase": "",
+          "bb_phase": "",
+          "neurological_score": null
+        }
+      ],
+      "arrival_date": "2026-09-01"
+    }
+  ],
+  "birth_date": "2026-07-20"
+}
